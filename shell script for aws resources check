@@ -1,0 +1,20 @@
+#!/bin/bash
+echo "this is for aws resourses check"
+#Author : Bharath
+#date 6th sep
+
+set -x
+set -e
+set -o pipefail
+
+# to check aws bucket list
+
+aws s3 ls
+
+# to check aws instance list
+
+aws ec2 describe-instances | jq '.Reservations[].instances[].instanceid'
+
+# to check iam users
+
+aws iam list-users
